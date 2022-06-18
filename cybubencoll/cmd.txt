@@ -1,0 +1,1 @@
+cat ascii_alphabet.txt | cybubenconv | bin/utf8conv | sort | tr '\n' '|'
