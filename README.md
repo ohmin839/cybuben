@@ -2,6 +2,7 @@
 `cybuben` is a tool for writing text in Armenian alphabet(*Aybuben*).
 
 ## cybubenconv
+A command to convert text from standard input in ASCII into Aybuben in Unicode.
 
 ### Examples
 ```bash
@@ -140,3 +141,16 @@ $ cat anthem_ascii.txt | cybubenconv
 | `\t` | `\t` |
 | `\n` | `\n` |
 | `\r\n` | `\r\n` |
+
+## cybubencoll
+A command to list words uniquely from text written in Armenian.
+
+### Example
+```bash
+$ cat anthem_ascii.txt | cybubenconv | cybubencoll
+Մեր
+Հայրենիք
+ազատ
+անկախ
+...
+```
