@@ -199,7 +199,7 @@ f {
     return SMALL_F;
 }
 gh? {
-    if (includes_char(yytext, 'v')) {
+    if (includes_char(yytext, 'h')) {
         yylval.pc = create_chunk("\u0572");
     } else {
         yylval.pc = create_chunk("\u0563");
