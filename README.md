@@ -154,3 +154,7 @@ $ cat anthem_ascii.txt | cybubenconv | cybubencoll
 անկախ
 ...
 ```
+
+## Resources
+- Armenian Alphabet (https://en.wikipedia.org/wiki/Armenian_alphabet)
+- Romanization of Armenian (https://en.wikipedia.org/wiki/Romanization_of_Armenian)
