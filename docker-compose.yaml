@@ -1,0 +1,10 @@
+version: "3"
+services:
+  dev:
+    tty: true
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
+    volumes:
+      - ./cybubenconv:/cybuben/cybubenconv
+      - ./cybubencoll:/cybuben/cybubencoll
