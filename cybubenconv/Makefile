@@ -1,6 +1,9 @@
+.PHONY: init
+init:
+	test -d ./bin || mkdir ./bin
+    
 .PHONY: clean
 clean:
-	test -d ./bin || mkdir ./bin
 	rm -fR ./bin/*
 
 bin/mapping.o: src/mapping.c src/mapping.h
@@ -9,33 +12,23 @@ bin/mapping.o: src/mapping.c src/mapping.h
 		./src/mapping.c \
 		-c -o./bin/mapping.o
 
-bin/parser.o: src/parser.y
-	bison src/parser.y -osrc/parser.c -d
+bin/parser.o: src/parser.peg
+	leg src/parser.peg -osrc/parser.c
 	gcc \
 		-I./src \
 		-fPIC \
 		./src/parser.c \
 		-c -o./bin/parser.o
 
-bin/lexer.o: src/lexer.l src/parser.h
-	flex -osrc/lexer.c src/lexer.l
-	gcc \
-		-I./src \
-		-fPIC \
-		./src/lexer.c \
-		-c -o./bin/lexer.o
-
-bin/cybubenconv: bin/parser.o bin/lexer.o bin/mapping.o
+bin/cybubenconv: bin/parser.o bin/mapping.o
 	gcc -I./src \
 		-fPIC \
 		./bin/parser.o \
-		./bin/lexer.o \
 		./bin/mapping.o \
-		-o./bin/cybubenconv \
-		-lfl -ly
+		-o./bin/cybubenconv
 
 .PHONY: build
-build: bin/cybubenconv
+build: init bin/cybubenconv
 
 .PHONY: test
 test: build
