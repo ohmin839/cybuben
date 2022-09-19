@@ -1,6 +1,9 @@
+.PHONY: init
+init:
+	test -d ./bin || mkdir ./bin
+
 .PHONY: clean
 clean:
-	test -d ./bin || mkdir ./bin
 	rm -fR ./bin/*
 
 bin/action.o: src/action.c
@@ -10,30 +13,23 @@ bin/action.o: src/action.c
 		./src/action.c \
 		-c -o./bin/action.o
 
-bin/lexer.o: src/lexer.l
-	flex -osrc/lexer.c src/lexer.l
+bin/parser.o: src/parser.leg
+	leg -osrc/parser.c src/parser.leg
 	gcc \
 		-I./src \
 		-fPIC \
-		./src/lexer.c \
-		-c -o./bin/lexer.o
+		./src/parser.c \
+		-c -o./bin/parser.o
 
-bin/utf8conv: src/utf8conv.c
-	gcc -I./src \
-		-fPIC \
-		./src/utf8conv.c \
-		-o./bin/utf8conv
-
-bin/cybubencoll: bin/action.o bin/lexer.o
+bin/cybubencoll: bin/action.o bin/parser.o
 	gcc -I./src \
 		-fPIC \
 		./bin/action.o \
-		./bin/lexer.o \
-		-o./bin/cybubencoll \
-		-lfl
+		./bin/parser.o \
+		-o./bin/cybubencoll
 
 .PHONY: build
-build: bin/cybubencoll
+build: init bin/cybubencoll
 
 .PHONY: install
 install: build
