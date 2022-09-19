@@ -1,9 +1,9 @@
 
 FROM ubuntu:focal
 
-RUN apt-get update && \
-    yes | unminimize && \
-    apt-get install -qy man build-essential curl
+RUN yes | unminimize && \
+    apt-get update && \
+    apt-get install -qy man less curl build-essential
 
 ARG USERNAME=user
 ARG GROUPNAME=user
