@@ -12,8 +12,8 @@ bin/mapping.o: src/mapping.c src/mapping.h
 		./src/mapping.c \
 		-c -o./bin/mapping.o
 
-bin/parser.o: src/parser.peg
-	leg src/parser.peg -osrc/parser.c
+bin/parser.o: src/parser.leg
+	leg src/parser.leg -osrc/parser.c
 	gcc \
 		-I./src \
 		-fPIC \

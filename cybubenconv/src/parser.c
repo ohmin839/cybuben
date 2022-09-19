@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #define YYRULECOUNT 65
-#line 1 "src/parser.peg"
+#line 1 "src/parser.leg"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -3543,7 +3543,7 @@ YY_PARSE(yycontext *) YYRELEASE(yycontext *yyctx)
 }
 
 #endif
-#line 567 "src/parser.peg"
+#line 567 "src/parser.leg"
 
 
 int main()
