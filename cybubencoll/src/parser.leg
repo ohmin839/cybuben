@@ -1,4 +1,6 @@
 %{
+#define YY_CTX_LOCAL 1
+
 #include <stdio.h>
 #include "action.h"
 
@@ -102,13 +104,4 @@ word
     ;
 
 %%
-
-int main()
-{
-    while (yyparse());
-    print_word_node(head);
-    free_word_node(head);
-
-    return 0;
-}
 

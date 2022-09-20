@@ -1,10 +1,11 @@
 %{
+#define YY_CTX_LOCAL 1
+#define YYSTYPE parsed_chunk_t*
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "mapping.h"
-
-#define YYSTYPE parsed_chunk_t*
 %}
 
 start
@@ -565,11 +566,4 @@ asis
     ;
 
 %%
-
-int main()
-{
-  while (yyparse());
-
-  return 0;
-}
 

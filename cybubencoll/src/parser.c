@@ -6,6 +6,8 @@
 #define YYRULECOUNT 2
 #line 1 "src/parser.leg"
 
+#define YY_CTX_LOCAL 1
+
 #include <stdio.h>
 #include "action.h"
 
@@ -289,7 +291,7 @@ YY_ACTION(void) yy_1_word(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_word\n"));
   {
-#line 95
+#line 97
   
         if (head == NULL) {
             head = create_word_node(yytext);
@@ -551,16 +553,7 @@ YY_PARSE(yycontext *) YYRELEASE(yycontext *yyctx)
 }
 
 #endif
-#line 104 "src/parser.leg"
+#line 106 "src/parser.leg"
 
-
-int main()
-{
-    while (yyparse());
-    print_word_node(head);
-    free_word_node(head);
-
-    return 0;
-}
 
 

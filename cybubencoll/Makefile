@@ -21,11 +21,18 @@ bin/parser.o: src/parser.leg
 		./src/parser.c \
 		-c -o./bin/parser.o
 
-bin/cybubencoll: bin/action.o bin/parser.o
+bin/cli.o: src/cli.c
+	gcc \
+		-I./src \
+		-fPIC \
+		./src/cli.c \
+		-c -o./bin/cli.o
+
+bin/cybubencoll: bin/action.o bin/cli.o
 	gcc -I./src \
 		-fPIC \
 		./bin/action.o \
-		./bin/parser.o \
+		./bin/cli.o \
 		-o./bin/cybubencoll
 
 .PHONY: build

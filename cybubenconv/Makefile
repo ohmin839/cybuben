@@ -20,11 +20,17 @@ bin/parser.o: src/parser.leg
 		./src/parser.c \
 		-c -o./bin/parser.o
 
-bin/cybubenconv: bin/parser.o bin/mapping.o
+bin/cli.o: src/cli.c
+	gcc \
+		-fPIC \
+		./src/cli.c \
+		-c -o./bin/cli.o
+
+bin/cybubenconv: bin/mapping.o bin/cli.o
 	gcc -I./src \
 		-fPIC \
-		./bin/parser.o \
 		./bin/mapping.o \
+		./bin/cli.o \
 		-o./bin/cybubenconv
 
 .PHONY: build

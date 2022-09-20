@@ -11,6 +11,7 @@
 #include <string.h>
 #include "mapping.h"
 
+#define YY_CTX_LOCAL 1
 #define YYSTYPE parsed_chunk_t*
 
 #ifndef YY_MALLOC
@@ -354,7 +355,7 @@ YY_ACTION(void) yy_1_asis(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_asis\n"));
   {
-#line 562
+#line 563
   
         __ = create_chunk(yytext);
     ;
@@ -370,7 +371,7 @@ YY_ACTION(void) yy_1_exclamation(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_exclamation\n"));
   {
-#line 551
+#line 552
   
         if (includes_char(yytext, '~')) {
             __ = create_chunk("\u055C");
@@ -390,7 +391,7 @@ YY_ACTION(void) yy_1_question(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_question\n"));
   {
-#line 545
+#line 546
   
         __ = create_chunk("\u055E");
     ;
@@ -406,7 +407,7 @@ YY_ACTION(void) yy_1_rightGuillemet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_rightGuillemet\n"));
   {
-#line 539
+#line 540
   
         __ = create_chunk("\u00BB");
     ;
@@ -422,7 +423,7 @@ YY_ACTION(void) yy_1_leftGuillemet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_leftGuillemet\n"));
   {
-#line 533
+#line 534
   
         __ = create_chunk("\u00AB");
     ;
@@ -438,7 +439,7 @@ YY_ACTION(void) yy_1_colon(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_colon\n"));
   {
-#line 527
+#line 528
   
         __ = create_chunk("\u0589");
     ;
@@ -454,7 +455,7 @@ YY_ACTION(void) yy_1_backQuote(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_backQuote\n"));
   {
-#line 521
+#line 522
   
         __ = create_chunk("\u055D");
     ;
@@ -470,7 +471,7 @@ YY_ACTION(void) yy_1_dollar(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_dollar\n"));
   {
-#line 515
+#line 516
   
         __ = create_chunk("\u058F");
     ;
@@ -486,7 +487,7 @@ YY_ACTION(void) yy_1_smallZ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallZ\n"));
   {
-#line 504
+#line 505
   
         if (includes_char(yytext, 'h')) {
             __ = create_chunk("\u056A");
@@ -506,7 +507,7 @@ YY_ACTION(void) yy_1_smallY(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallY\n"));
   {
-#line 494
+#line 495
   
         if (includes_char(yytext, '\'')) {
             __ = create_chunk("\u0568");
@@ -526,7 +527,7 @@ YY_ACTION(void) yy_1_smallX(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallX\n"));
   {
-#line 488
+#line 489
   
         __ = create_chunk("\u056D");
     ;
@@ -542,7 +543,7 @@ YY_ACTION(void) yy_1_smallW(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallW\n"));
   {
-#line 482
+#line 483
   
         __ = create_chunk("\u0582");
     ;
@@ -558,7 +559,7 @@ YY_ACTION(void) yy_1_smallV(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallV\n"));
   {
-#line 472
+#line 473
   
         if (includes_char(yytext, 'o')) {
             __ = create_chunk("\u0578");
@@ -578,7 +579,7 @@ YY_ACTION(void) yy_1_smallU(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallU\n"));
   {
-#line 466
+#line 467
   
         __ = create_chunk("\u0578\u0582");
     ;
@@ -594,7 +595,7 @@ YY_ACTION(void) yy_1_smallT(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallT\n"));
   {
-#line 454
+#line 455
   
         if (includes_char(yytext, 'w')) {
             __ = create_chunk("\u0573");
@@ -616,7 +617,7 @@ YY_ACTION(void) yy_1_smallS(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallS\n"));
   {
-#line 444
+#line 445
   
         if (includes_char(yytext, 'h')) {
             __ = create_chunk("\u0577");
@@ -636,7 +637,7 @@ YY_ACTION(void) yy_1_smallR(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallR\n"));
   {
-#line 434
+#line 435
   
         if (strcmp(yytext, "rr") == 0) {
             __ = create_chunk("\u057C");
@@ -656,7 +657,7 @@ YY_ACTION(void) yy_1_smallQ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallQ\n"));
   {
-#line 428
+#line 429
   
         __ = create_chunk("\u0584");
     ;
@@ -672,7 +673,7 @@ YY_ACTION(void) yy_1_smallP(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallP\n"));
   {
-#line 418
+#line 419
   
         if (includes_char(yytext, '\'')) {
             __ = create_chunk("\u0583");
@@ -692,7 +693,7 @@ YY_ACTION(void) yy_1_smallO(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallO\n"));
   {
-#line 412
+#line 413
   
         __ = create_chunk("\u0585");
     ;
@@ -708,7 +709,7 @@ YY_ACTION(void) yy_1_smallN(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallN\n"));
   {
-#line 406
+#line 407
   
         __ = create_chunk("\u0576");
     ;
@@ -724,7 +725,7 @@ YY_ACTION(void) yy_1_smallM(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallM\n"));
   {
-#line 400
+#line 401
   
         __ = create_chunk("\u0574");
     ;
@@ -740,7 +741,7 @@ YY_ACTION(void) yy_1_smallL(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallL\n"));
   {
-#line 394
+#line 395
   
         __ = create_chunk("\u056C");
     ;
@@ -756,7 +757,7 @@ YY_ACTION(void) yy_1_smallK(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallK\n"));
   {
-#line 388
+#line 389
   
         __ = create_chunk("\u056F");
     ;
@@ -772,7 +773,7 @@ YY_ACTION(void) yy_1_smallJ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallJ\n"));
   {
-#line 382
+#line 383
   
         __ = create_chunk("\u057B");
     ;
@@ -788,7 +789,7 @@ YY_ACTION(void) yy_1_smallI(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallI\n"));
   {
-#line 376
+#line 377
   
         __ = create_chunk("\u0568");
     ;
@@ -804,7 +805,7 @@ YY_ACTION(void) yy_1_smallH(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallH\n"));
   {
-#line 370
+#line 371
   
         __ = create_chunk("\u0570");
     ;
@@ -820,7 +821,7 @@ YY_ACTION(void) yy_1_smallG(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallG\n"));
   {
-#line 360
+#line 361
   
         if (includes_char(yytext, 'h')) {
             __ = create_chunk("\u0572");
@@ -840,7 +841,7 @@ YY_ACTION(void) yy_1_smallF(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallF\n"));
   {
-#line 354
+#line 355
   
         __ = create_chunk("\u0586");
     ;
@@ -856,7 +857,7 @@ YY_ACTION(void) yy_1_smallE(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallE\n"));
   {
-#line 342
+#line 343
   
         if (includes_char(yytext, 'v')) {
             __ = create_chunk("\u0587");
@@ -878,7 +879,7 @@ YY_ACTION(void) yy_1_smallD(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallD\n"));
   {
-#line 332
+#line 333
   
         if (includes_char(yytext, 'z')) {
             __ = create_chunk("\u0571");
@@ -898,7 +899,7 @@ YY_ACTION(void) yy_1_smallC(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallC\n"));
   {
-#line 320
+#line 321
   
         if (includes_char(yytext, 'h')) {
             __ = create_chunk("\u0579");
@@ -920,7 +921,7 @@ YY_ACTION(void) yy_1_smallB(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallB\n"));
   {
-#line 314
+#line 315
   
         __ = create_chunk("\u0562");
     ;
@@ -936,7 +937,7 @@ YY_ACTION(void) yy_1_smallA(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallA\n"));
   {
-#line 308
+#line 309
   
         __ = create_chunk("\u0561");
     ;
@@ -952,7 +953,7 @@ YY_ACTION(void) yy_1_largeZ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeZ\n"));
   {
-#line 297
+#line 298
   
         if (includes_char(yytext, 'h')) {
             __ = create_chunk("\u053A");
@@ -972,7 +973,7 @@ YY_ACTION(void) yy_1_largeY(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeY\n"));
   {
-#line 287
+#line 288
   
         if (includes_char(yytext, '\'')) {
             __ = create_chunk("\u0538");
@@ -992,7 +993,7 @@ YY_ACTION(void) yy_1_largeX(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeX\n"));
   {
-#line 281
+#line 282
   
         __ = create_chunk("\u053D");
     ;
@@ -1008,7 +1009,7 @@ YY_ACTION(void) yy_1_largeW(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeW\n"));
   {
-#line 275
+#line 276
   
         __ = create_chunk("\u0552");
     ;
@@ -1024,7 +1025,7 @@ YY_ACTION(void) yy_1_largeV(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeV\n"));
   {
-#line 265
+#line 266
   
         if (includes_char(yytext, 'o')) {
             __ = create_chunk("\u0548");
@@ -1044,7 +1045,7 @@ YY_ACTION(void) yy_1_largeU(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeU\n"));
   {
-#line 259
+#line 260
   
         __ = create_chunk("\u0548\u0582");
     ;
@@ -1060,7 +1061,7 @@ YY_ACTION(void) yy_1_largeT(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeT\n"));
   {
-#line 247
+#line 248
   
         if (includes_char(yytext, 'w')) {
             __ = create_chunk("\u0543");
@@ -1082,7 +1083,7 @@ YY_ACTION(void) yy_1_largeS(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeS\n"));
   {
-#line 237
+#line 238
   
         if (includes_char(yytext, 'h')) {
             __ = create_chunk("\u0547");
@@ -1102,7 +1103,7 @@ YY_ACTION(void) yy_1_largeR(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeR\n"));
   {
-#line 227
+#line 228
   
         if (includes_char(yytext, 'r')) {
             __ = create_chunk("\u054C");
@@ -1122,7 +1123,7 @@ YY_ACTION(void) yy_1_largeQ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeQ\n"));
   {
-#line 221
+#line 222
   
         __ = create_chunk("\u0554");
     ;
@@ -1138,7 +1139,7 @@ YY_ACTION(void) yy_1_largeP(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeP\n"));
   {
-#line 211
+#line 212
   
         if (includes_char(yytext, '\'')) {
             __ = create_chunk("\u0553");
@@ -1158,7 +1159,7 @@ YY_ACTION(void) yy_1_largeO(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeO\n"));
   {
-#line 205
+#line 206
   
         __ = create_chunk("\u0555");
     ;
@@ -1174,7 +1175,7 @@ YY_ACTION(void) yy_1_largeN(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeN\n"));
   {
-#line 199
+#line 200
   
         __ = create_chunk("\u0546");
     ;
@@ -1190,7 +1191,7 @@ YY_ACTION(void) yy_1_largeM(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeM\n"));
   {
-#line 193
+#line 194
   
         __ = create_chunk("\u0544");
     ;
@@ -1206,7 +1207,7 @@ YY_ACTION(void) yy_1_largeL(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeL\n"));
   {
-#line 187
+#line 188
   
         __ = create_chunk("\u053C");
     ;
@@ -1222,7 +1223,7 @@ YY_ACTION(void) yy_1_largeK(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeK\n"));
   {
-#line 181
+#line 182
   
         __ = create_chunk("\u053F");
     ;
@@ -1238,7 +1239,7 @@ YY_ACTION(void) yy_1_largeJ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeJ\n"));
   {
-#line 175
+#line 176
   
         __ = create_chunk("\u054B");
     ;
@@ -1254,7 +1255,7 @@ YY_ACTION(void) yy_1_largeI(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeI\n"));
   {
-#line 169
+#line 170
   
         __ = create_chunk("\u053B");
     ;
@@ -1270,7 +1271,7 @@ YY_ACTION(void) yy_1_largeH(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeH\n"));
   {
-#line 163
+#line 164
   
         __ = create_chunk("\u0540");
     ;
@@ -1286,7 +1287,7 @@ YY_ACTION(void) yy_1_largeG(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeG\n"));
   {
-#line 153
+#line 154
   
         if (includes_char(yytext, 'h')) {
             __ = create_chunk("\u0542");
@@ -1306,7 +1307,7 @@ YY_ACTION(void) yy_1_largeF(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeF\n"));
   {
-#line 147
+#line 148
   
         __ = create_chunk("\u0556");
     ;
@@ -1322,7 +1323,7 @@ YY_ACTION(void) yy_1_largeE(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeE\n"));
   {
-#line 137
+#line 138
   
         if (includes_char(yytext, '\'')) {
             __ = create_chunk("\u0537");
@@ -1342,7 +1343,7 @@ YY_ACTION(void) yy_1_largeD(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeD\n"));
   {
-#line 127
+#line 128
   
         if (includes_char(yytext, 'z')) {
             __ = create_chunk("\u0541");
@@ -1362,7 +1363,7 @@ YY_ACTION(void) yy_1_largeC(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeC\n"));
   {
-#line 115
+#line 116
   
         if (includes_char(yytext, 'h')) {
             __ = create_chunk("\u0549");
@@ -1384,7 +1385,7 @@ YY_ACTION(void) yy_1_largeB(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeB\n"));
   {
-#line 109
+#line 110
   
         __ = create_chunk("\u0532");
     ;
@@ -1400,7 +1401,7 @@ YY_ACTION(void) yy_1_largeA(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeA\n"));
   {
-#line 103
+#line 104
   
         __ = create_chunk("\u0531");
     ;
@@ -1417,7 +1418,7 @@ YY_ACTION(void) yy_7_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_7_non_alphabet\n"));
   {
-#line 98
+#line 99
    __ = l; ;
   }
 #undef yythunkpos
@@ -1433,7 +1434,7 @@ YY_ACTION(void) yy_6_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_6_non_alphabet\n"));
   {
-#line 97
+#line 98
    __ = l; ;
   }
 #undef yythunkpos
@@ -1449,7 +1450,7 @@ YY_ACTION(void) yy_5_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_5_non_alphabet\n"));
   {
-#line 96
+#line 97
    __ = l; ;
   }
 #undef yythunkpos
@@ -1465,7 +1466,7 @@ YY_ACTION(void) yy_4_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_4_non_alphabet\n"));
   {
-#line 95
+#line 96
    __ = l; ;
   }
 #undef yythunkpos
@@ -1481,7 +1482,7 @@ YY_ACTION(void) yy_3_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_3_non_alphabet\n"));
   {
-#line 94
+#line 95
    __ = l; ;
   }
 #undef yythunkpos
@@ -1497,7 +1498,7 @@ YY_ACTION(void) yy_2_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_non_alphabet\n"));
   {
-#line 93
+#line 94
    __ = l; ;
   }
 #undef yythunkpos
@@ -1513,7 +1514,7 @@ YY_ACTION(void) yy_1_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_non_alphabet\n"));
   {
-#line 92
+#line 93
    __ = l; ;
   }
 #undef yythunkpos
@@ -1529,7 +1530,7 @@ YY_ACTION(void) yy_52_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_52_alphabet\n"));
   {
-#line 88
+#line 89
    __ = l; ;
   }
 #undef yythunkpos
@@ -1545,7 +1546,7 @@ YY_ACTION(void) yy_51_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_51_alphabet\n"));
   {
-#line 87
+#line 88
    __ = l; ;
   }
 #undef yythunkpos
@@ -1561,7 +1562,7 @@ YY_ACTION(void) yy_50_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_50_alphabet\n"));
   {
-#line 86
+#line 87
    __ = l; ;
   }
 #undef yythunkpos
@@ -1577,7 +1578,7 @@ YY_ACTION(void) yy_49_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_49_alphabet\n"));
   {
-#line 85
+#line 86
    __ = l; ;
   }
 #undef yythunkpos
@@ -1593,7 +1594,7 @@ YY_ACTION(void) yy_48_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_48_alphabet\n"));
   {
-#line 84
+#line 85
    __ = l; ;
   }
 #undef yythunkpos
@@ -1609,7 +1610,7 @@ YY_ACTION(void) yy_47_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_47_alphabet\n"));
   {
-#line 83
+#line 84
    __ = l; ;
   }
 #undef yythunkpos
@@ -1625,7 +1626,7 @@ YY_ACTION(void) yy_46_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_46_alphabet\n"));
   {
-#line 82
+#line 83
    __ = l; ;
   }
 #undef yythunkpos
@@ -1641,7 +1642,7 @@ YY_ACTION(void) yy_45_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_45_alphabet\n"));
   {
-#line 81
+#line 82
    __ = l; ;
   }
 #undef yythunkpos
@@ -1657,7 +1658,7 @@ YY_ACTION(void) yy_44_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_44_alphabet\n"));
   {
-#line 80
+#line 81
    __ = l; ;
   }
 #undef yythunkpos
@@ -1673,7 +1674,7 @@ YY_ACTION(void) yy_43_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_43_alphabet\n"));
   {
-#line 79
+#line 80
    __ = l; ;
   }
 #undef yythunkpos
@@ -1689,7 +1690,7 @@ YY_ACTION(void) yy_42_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_42_alphabet\n"));
   {
-#line 78
+#line 79
    __ = l; ;
   }
 #undef yythunkpos
@@ -1705,7 +1706,7 @@ YY_ACTION(void) yy_41_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_41_alphabet\n"));
   {
-#line 77
+#line 78
    __ = l; ;
   }
 #undef yythunkpos
@@ -1721,7 +1722,7 @@ YY_ACTION(void) yy_40_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_40_alphabet\n"));
   {
-#line 76
+#line 77
    __ = l; ;
   }
 #undef yythunkpos
@@ -1737,7 +1738,7 @@ YY_ACTION(void) yy_39_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_39_alphabet\n"));
   {
-#line 75
+#line 76
    __ = l; ;
   }
 #undef yythunkpos
@@ -1753,7 +1754,7 @@ YY_ACTION(void) yy_38_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_38_alphabet\n"));
   {
-#line 74
+#line 75
    __ = l; ;
   }
 #undef yythunkpos
@@ -1769,7 +1770,7 @@ YY_ACTION(void) yy_37_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_37_alphabet\n"));
   {
-#line 73
+#line 74
    __ = l; ;
   }
 #undef yythunkpos
@@ -1785,7 +1786,7 @@ YY_ACTION(void) yy_36_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_36_alphabet\n"));
   {
-#line 72
+#line 73
    __ = l; ;
   }
 #undef yythunkpos
@@ -1801,7 +1802,7 @@ YY_ACTION(void) yy_35_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_35_alphabet\n"));
   {
-#line 71
+#line 72
    __ = l; ;
   }
 #undef yythunkpos
@@ -1817,7 +1818,7 @@ YY_ACTION(void) yy_34_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_34_alphabet\n"));
   {
-#line 70
+#line 71
    __ = l; ;
   }
 #undef yythunkpos
@@ -1833,7 +1834,7 @@ YY_ACTION(void) yy_33_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_33_alphabet\n"));
   {
-#line 69
+#line 70
    __ = l; ;
   }
 #undef yythunkpos
@@ -1849,7 +1850,7 @@ YY_ACTION(void) yy_32_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_32_alphabet\n"));
   {
-#line 68
+#line 69
    __ = l; ;
   }
 #undef yythunkpos
@@ -1865,7 +1866,7 @@ YY_ACTION(void) yy_31_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_31_alphabet\n"));
   {
-#line 67
+#line 68
    __ = l; ;
   }
 #undef yythunkpos
@@ -1881,7 +1882,7 @@ YY_ACTION(void) yy_30_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_30_alphabet\n"));
   {
-#line 66
+#line 67
    __ = l; ;
   }
 #undef yythunkpos
@@ -1897,7 +1898,7 @@ YY_ACTION(void) yy_29_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_29_alphabet\n"));
   {
-#line 65
+#line 66
    __ = l; ;
   }
 #undef yythunkpos
@@ -1913,7 +1914,7 @@ YY_ACTION(void) yy_28_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_28_alphabet\n"));
   {
-#line 64
+#line 65
    __ = l; ;
   }
 #undef yythunkpos
@@ -1929,7 +1930,7 @@ YY_ACTION(void) yy_27_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_27_alphabet\n"));
   {
-#line 63
+#line 64
    __ = l; ;
   }
 #undef yythunkpos
@@ -1945,7 +1946,7 @@ YY_ACTION(void) yy_26_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_26_alphabet\n"));
   {
-#line 62
+#line 63
    __ = l; ;
   }
 #undef yythunkpos
@@ -1961,7 +1962,7 @@ YY_ACTION(void) yy_25_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_25_alphabet\n"));
   {
-#line 61
+#line 62
    __ = l; ;
   }
 #undef yythunkpos
@@ -1977,7 +1978,7 @@ YY_ACTION(void) yy_24_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_24_alphabet\n"));
   {
-#line 60
+#line 61
    __ = l; ;
   }
 #undef yythunkpos
@@ -1993,7 +1994,7 @@ YY_ACTION(void) yy_23_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_23_alphabet\n"));
   {
-#line 59
+#line 60
    __ = l; ;
   }
 #undef yythunkpos
@@ -2009,7 +2010,7 @@ YY_ACTION(void) yy_22_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_22_alphabet\n"));
   {
-#line 58
+#line 59
    __ = l; ;
   }
 #undef yythunkpos
@@ -2025,7 +2026,7 @@ YY_ACTION(void) yy_21_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_21_alphabet\n"));
   {
-#line 57
+#line 58
    __ = l; ;
   }
 #undef yythunkpos
@@ -2041,7 +2042,7 @@ YY_ACTION(void) yy_20_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_20_alphabet\n"));
   {
-#line 56
+#line 57
    __ = l; ;
   }
 #undef yythunkpos
@@ -2057,7 +2058,7 @@ YY_ACTION(void) yy_19_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_19_alphabet\n"));
   {
-#line 55
+#line 56
    __ = l; ;
   }
 #undef yythunkpos
@@ -2073,7 +2074,7 @@ YY_ACTION(void) yy_18_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_18_alphabet\n"));
   {
-#line 54
+#line 55
    __ = l; ;
   }
 #undef yythunkpos
@@ -2089,7 +2090,7 @@ YY_ACTION(void) yy_17_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_17_alphabet\n"));
   {
-#line 53
+#line 54
    __ = l; ;
   }
 #undef yythunkpos
@@ -2105,7 +2106,7 @@ YY_ACTION(void) yy_16_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_16_alphabet\n"));
   {
-#line 52
+#line 53
    __ = l; ;
   }
 #undef yythunkpos
@@ -2121,7 +2122,7 @@ YY_ACTION(void) yy_15_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_15_alphabet\n"));
   {
-#line 51
+#line 52
    __ = l; ;
   }
 #undef yythunkpos
@@ -2137,7 +2138,7 @@ YY_ACTION(void) yy_14_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_14_alphabet\n"));
   {
-#line 50
+#line 51
    __ = l; ;
   }
 #undef yythunkpos
@@ -2153,7 +2154,7 @@ YY_ACTION(void) yy_13_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_13_alphabet\n"));
   {
-#line 49
+#line 50
    __ = l; ;
   }
 #undef yythunkpos
@@ -2169,7 +2170,7 @@ YY_ACTION(void) yy_12_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_12_alphabet\n"));
   {
-#line 48
+#line 49
    __ = l; ;
   }
 #undef yythunkpos
@@ -2185,7 +2186,7 @@ YY_ACTION(void) yy_11_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_11_alphabet\n"));
   {
-#line 47
+#line 48
    __ = l; ;
   }
 #undef yythunkpos
@@ -2201,7 +2202,7 @@ YY_ACTION(void) yy_10_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_10_alphabet\n"));
   {
-#line 46
+#line 47
    __ = l; ;
   }
 #undef yythunkpos
@@ -2217,7 +2218,7 @@ YY_ACTION(void) yy_9_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_9_alphabet\n"));
   {
-#line 45
+#line 46
    __ = l; ;
   }
 #undef yythunkpos
@@ -2233,7 +2234,7 @@ YY_ACTION(void) yy_8_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_8_alphabet\n"));
   {
-#line 44
+#line 45
    __ = l; ;
   }
 #undef yythunkpos
@@ -2249,7 +2250,7 @@ YY_ACTION(void) yy_7_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_7_alphabet\n"));
   {
-#line 43
+#line 44
    __ = l; ;
   }
 #undef yythunkpos
@@ -2265,7 +2266,7 @@ YY_ACTION(void) yy_6_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_6_alphabet\n"));
   {
-#line 42
+#line 43
    __ = l; ;
   }
 #undef yythunkpos
@@ -2281,7 +2282,7 @@ YY_ACTION(void) yy_5_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_5_alphabet\n"));
   {
-#line 41
+#line 42
    __ = l; ;
   }
 #undef yythunkpos
@@ -2297,7 +2298,7 @@ YY_ACTION(void) yy_4_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_4_alphabet\n"));
   {
-#line 40
+#line 41
    __ = l; ;
   }
 #undef yythunkpos
@@ -2313,7 +2314,7 @@ YY_ACTION(void) yy_3_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_3_alphabet\n"));
   {
-#line 39
+#line 40
    __ = l; ;
   }
 #undef yythunkpos
@@ -2329,7 +2330,7 @@ YY_ACTION(void) yy_2_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_alphabet\n"));
   {
-#line 38
+#line 39
    __ = l; ;
   }
 #undef yythunkpos
@@ -2345,7 +2346,7 @@ YY_ACTION(void) yy_1_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_alphabet\n"));
   {
-#line 37
+#line 38
    __ = l; ;
   }
 #undef yythunkpos
@@ -2361,7 +2362,7 @@ YY_ACTION(void) yy_3_letter(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_3_letter\n"));
   {
-#line 33
+#line 34
    __ = l; ;
   }
 #undef yythunkpos
@@ -2377,7 +2378,7 @@ YY_ACTION(void) yy_2_letter(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_letter\n"));
   {
-#line 32
+#line 33
    __ = l; ;
   }
 #undef yythunkpos
@@ -2393,7 +2394,7 @@ YY_ACTION(void) yy_1_letter(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_letter\n"));
   {
-#line 31
+#line 32
    __ = l; ;
   }
 #undef yythunkpos
@@ -2410,7 +2411,7 @@ YY_ACTION(void) yy_2_letters(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_letters\n"));
   {
-#line 25
+#line 26
   
         __ = l;
     ;
@@ -2430,7 +2431,7 @@ YY_ACTION(void) yy_1_letters(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_letters\n"));
   {
-#line 20
+#line 21
   
         l->n = ls;
         __ = l;
@@ -2450,7 +2451,7 @@ YY_ACTION(void) yy_1_start(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_start\n"));
   {
-#line 12
+#line 13
   
         print_chunk(l);
         free_chunk(l);
@@ -3543,14 +3544,7 @@ YY_PARSE(yycontext *) YYRELEASE(yycontext *yyctx)
 }
 
 #endif
-#line 567 "src/parser.leg"
+#line 568 "src/parser.leg"
 
-
-int main()
-{
-  while (yyparse());
-
-  return 0;
-}
 
 
