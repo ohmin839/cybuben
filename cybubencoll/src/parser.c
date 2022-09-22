@@ -6,7 +6,7 @@
 #define YYRULECOUNT 2
 #line 1 "src/parser.leg"
 
-#define YY_CTX_LOCAL 1
+#define YY_CTX_LOCAL
 
 #include <stdio.h>
 #include "action.h"

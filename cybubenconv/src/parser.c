@@ -6,13 +6,13 @@
 #define YYRULECOUNT 65
 #line 1 "src/parser.leg"
 
+#define YY_CTX_LOCAL
+#define YYSTYPE parsed_chunk_t*
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "mapping.h"
-
-#define YY_CTX_LOCAL 1
-#define YYSTYPE parsed_chunk_t*
 
 #ifndef YY_MALLOC
 #define YY_MALLOC(C, N)		malloc(N)

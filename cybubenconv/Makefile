@@ -12,15 +12,10 @@ bin/mapping.o: src/mapping.c src/mapping.h
 		./src/mapping.c \
 		-c -o./bin/mapping.o
 
-bin/parser.o: src/parser.leg
+src/parser.c: src/parser.leg
 	leg src/parser.leg -osrc/parser.c
-	gcc \
-		-I./src \
-		-fPIC \
-		./src/parser.c \
-		-c -o./bin/parser.o
 
-bin/cli.o: src/cli.c
+bin/cli.o: src/parser.c src/cli.c
 	gcc \
 		-fPIC \
 		./src/cli.c \
@@ -43,3 +38,4 @@ test: build
 .PHONY: install
 install: build
 	test -z ${INSTALL_DIR} || cp bin/cybubenconv ${INSTALL_DIR}/bin/
+

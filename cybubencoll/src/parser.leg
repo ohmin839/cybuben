@@ -1,5 +1,5 @@
 %{
-#define YY_CTX_LOCAL 1
+#define YY_CTX_LOCAL
 
 #include <stdio.h>
 #include "action.h"

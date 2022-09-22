@@ -13,15 +13,10 @@ bin/action.o: src/action.c
 		./src/action.c \
 		-c -o./bin/action.o
 
-bin/parser.o: src/parser.leg
+src/parser.c: src/parser.leg
 	leg -osrc/parser.c src/parser.leg
-	gcc \
-		-I./src \
-		-fPIC \
-		./src/parser.c \
-		-c -o./bin/parser.o
 
-bin/cli.o: src/cli.c
+bin/cli.o: src/parser.c src/cli.c
 	gcc \
 		-I./src \
 		-fPIC \
