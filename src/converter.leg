@@ -1,0 +1,566 @@
+%{
+#include "util.h"
+
+#define YYSTYPE cybuben_node*
+#define YY_CTX_LOCAL
+#define YY_CTX_MEMBERS \
+    cybuben_string* result;
+%}
+
+start
+    = ls:letters
+    {
+        yy->result = cybuben_string_create(ls);
+    }
+    ;
+
+letters
+    = l:letter ls:letters
+    {
+        l->next = ls;
+        $$ = l;
+    }
+    | l:letter
+    {
+        $$ = l;
+    }
+
+letter
+    = l:alphabet { $$ = l; }
+    | l:non_alphabet { $$ = l; }
+    | l:asis   { $$ = l; }
+    ;
+
+alphabet
+    = l:largeA { $$ = l; }
+    | l:largeB { $$ = l; }
+    | l:largeC { $$ = l; }
+    | l:largeD { $$ = l; }
+    | l:largeE { $$ = l; }
+    | l:largeF { $$ = l; }
+    | l:largeG { $$ = l; }
+    | l:largeH { $$ = l; }
+    | l:largeI { $$ = l; }
+    | l:largeJ { $$ = l; }
+    | l:largeK { $$ = l; }
+    | l:largeL { $$ = l; }
+    | l:largeM { $$ = l; }
+    | l:largeN { $$ = l; }
+    | l:largeO { $$ = l; }
+    | l:largeP { $$ = l; }
+    | l:largeQ { $$ = l; }
+    | l:largeR { $$ = l; }
+    | l:largeS { $$ = l; }
+    | l:largeT { $$ = l; }
+    | l:largeU { $$ = l; }
+    | l:largeV { $$ = l; }
+    | l:largeW { $$ = l; }
+    | l:largeX { $$ = l; }
+    | l:largeY { $$ = l; }
+    | l:largeZ { $$ = l; }
+    | l:smallA { $$ = l; }
+    | l:smallB { $$ = l; }
+    | l:smallC { $$ = l; }
+    | l:smallD { $$ = l; }
+    | l:smallE { $$ = l; }
+    | l:smallF { $$ = l; }
+    | l:smallG { $$ = l; }
+    | l:smallH { $$ = l; }
+    | l:smallI { $$ = l; }
+    | l:smallJ { $$ = l; }
+    | l:smallK { $$ = l; }
+    | l:smallL { $$ = l; }
+    | l:smallM { $$ = l; }
+    | l:smallN { $$ = l; }
+    | l:smallO { $$ = l; }
+    | l:smallP { $$ = l; }
+    | l:smallQ { $$ = l; }
+    | l:smallR { $$ = l; }
+    | l:smallS { $$ = l; }
+    | l:smallT { $$ = l; }
+    | l:smallU { $$ = l; }
+    | l:smallV { $$ = l; }
+    | l:smallW { $$ = l; }
+    | l:smallX { $$ = l; }
+    | l:smallY { $$ = l; }
+    | l:smallZ { $$ = l; }
+    ;
+
+non_alphabet
+    = l:dollar { $$ = l; }
+    | l:backQuote { $$ = l; }
+    | l:colon { $$ = l; }
+    | l:leftGuillemet { $$ = l; }
+    | l:rightGuillemet { $$ = l; }
+    | l:question { $$ = l; }
+    | l:exclamation { $$ = l; }
+    ;
+
+largeA
+    = 'A'
+    {
+        $$ = cybuben_node_create("\u0531");
+    }
+    ;
+largeB
+    = 'B'
+    {
+        $$ = cybuben_node_create("\u0532");
+    }
+    ;
+largeC
+    = < 'C' [h']? >
+    {
+        if (cybuben_includes_char(yytext, 'h')) {
+            $$ = cybuben_node_create("\u0549");
+        } else if (cybuben_includes_char(yytext, '\'')) {
+            $$ = cybuben_node_create("\u053E");
+        } else {
+            $$ = cybuben_node_create("\u0551");
+        }
+    }
+    ;
+largeD
+    = < 'D' 'z'? >
+    {
+        if (cybuben_includes_char(yytext, 'z')) {
+            $$ = cybuben_node_create("\u0541");
+        } else {
+            $$ = cybuben_node_create("\u0534");
+        }
+    }
+    ;
+largeE
+    = < 'E' '\''? >
+    {
+        if (cybuben_includes_char(yytext, '\'')) {
+            $$ = cybuben_node_create("\u0537");
+        } else {
+            $$ = cybuben_node_create("\u0535");
+        }
+    }
+    ;
+largeF
+    = 'F'
+    {
+        $$ = cybuben_node_create("\u0556");
+    }
+    ;
+largeG
+    = < 'G' 'h'? >
+    {
+        if (cybuben_includes_char(yytext, 'h')) {
+            $$ = cybuben_node_create("\u0542");
+        } else {
+            $$ = cybuben_node_create("\u0533");
+        }
+    }
+    ;
+largeH
+    = 'H'
+    {
+        $$ = cybuben_node_create("\u0540");
+    }
+    ;
+largeI
+    = 'I'
+    {
+        $$ = cybuben_node_create("\u053B");
+    }
+    ;
+largeJ
+    = 'J'
+    {
+        $$ = cybuben_node_create("\u054B");
+    }
+    ;
+largeK
+    = 'K'
+    {
+        $$ = cybuben_node_create("\u053F");
+    }
+    ;
+largeL
+    = 'L'
+    {
+        $$ = cybuben_node_create("\u053C");
+    }
+    ;
+largeM
+    = 'M'
+    {
+        $$ = cybuben_node_create("\u0544");
+    }
+    ;
+largeN
+    = 'N'
+    {
+        $$ = cybuben_node_create("\u0546");
+    }
+    ;
+largeO
+    = 'O'
+    {
+        $$ = cybuben_node_create("\u0555");
+    }
+    ;
+largeP
+    = < 'P' '\''? >
+    {
+        if (cybuben_includes_char(yytext, '\'')) {
+            $$ = cybuben_node_create("\u0553");
+        } else {
+            $$ = cybuben_node_create("\u054A");
+        }
+    }
+    ;
+largeQ
+    = 'Q'
+    {
+        $$ = cybuben_node_create("\u0554");
+    }
+    ;
+largeR
+    = < 'R' 'r'? >
+    {
+        if (cybuben_includes_char(yytext, 'r')) {
+            $$ = cybuben_node_create("\u054C");
+        } else {
+            $$ = cybuben_node_create("\u0550");
+        }
+    }
+    ;
+largeS
+    = < 'S' 'h'? >
+    {
+        if (cybuben_includes_char(yytext, 'h')) {
+            $$ = cybuben_node_create("\u0547");
+        } else {
+            $$ = cybuben_node_create("\u054D");
+        }
+    }
+    ;
+largeT
+    = < 'T'[w']? >
+    {
+        if (cybuben_includes_char(yytext, 'w')) {
+            $$ = cybuben_node_create("\u0543");
+        } else if (cybuben_includes_char(yytext, '\'')) {
+            $$ = cybuben_node_create("\u0539");
+        } else {
+            $$ = cybuben_node_create("\u054F");
+        }
+    }
+    ;
+largeU
+    = 'U'
+    {
+        $$ = cybuben_node_create("\u0548\u0582");
+    }
+    ;
+largeV
+    = < 'V' 'o'? >
+    {
+        if (cybuben_includes_char(yytext, 'o')) {
+            $$ = cybuben_node_create("\u0548");
+        } else {
+            $$ = cybuben_node_create("\u054E");
+        }
+    }
+    ;
+largeW
+    = 'W'
+    {
+        $$ = cybuben_node_create("\u0552");
+    }
+    ;
+largeX
+    = 'X'
+    {
+        $$ = cybuben_node_create("\u053D");
+    }
+    ;
+largeY
+    = < 'Y' '\''? >
+    {
+        if (cybuben_includes_char(yytext, '\'')) {
+            $$ = cybuben_node_create("\u0538");
+        } else {
+            $$ = cybuben_node_create("\u0545");
+        }
+    }
+    ;
+largeZ
+    = < 'Z' 'h'? >
+    {
+        if (cybuben_includes_char(yytext, 'h')) {
+            $$ = cybuben_node_create("\u053A");
+        } else {
+            $$ = cybuben_node_create("\u0536");
+        }
+    }
+    ;
+
+smallA
+    = 'a'
+    {
+        $$ = cybuben_node_create("\u0561");
+    }
+    ;
+smallB
+    = 'b'
+    {
+        $$ = cybuben_node_create("\u0562");
+    }
+    ;
+smallC
+    = < 'c' [h']? >
+    {
+        if (cybuben_includes_char(yytext, 'h')) {
+            $$ = cybuben_node_create("\u0579");
+        } else if (cybuben_includes_char(yytext, '\'')) {
+            $$ = cybuben_node_create("\u056E");
+        } else {
+            $$ = cybuben_node_create("\u0581");
+        }
+    }
+    ;
+smallD
+    = < 'd' 'z'? >
+    {
+        if (cybuben_includes_char(yytext, 'z')) {
+            $$ = cybuben_node_create("\u0571");
+        } else {
+            $$ = cybuben_node_create("\u0564");
+        }
+    }
+    ;
+smallE
+    = < 'e' [v']? >
+    {
+        if (cybuben_includes_char(yytext, 'v')) {
+            $$ = cybuben_node_create("\u0587");
+        } else if (cybuben_includes_char(yytext, '\'')) {
+            $$ = cybuben_node_create("\u0567");
+        } else {
+            $$ = cybuben_node_create("\u0565");
+        }
+    }
+    ;
+smallF
+    = 'f'
+    {
+        $$ = cybuben_node_create("\u0586");
+    }
+    ;
+smallG
+    = < 'g' 'h'? >
+    {
+        if (cybuben_includes_char(yytext, 'h')) {
+            $$ = cybuben_node_create("\u0572");
+        } else {
+            $$ = cybuben_node_create("\u0563");
+        }
+    }
+    ;
+smallH
+    = 'h'
+    {
+        $$ = cybuben_node_create("\u0570");
+    }
+    ;
+smallI
+    = 'i'
+    {
+        $$ = cybuben_node_create("\u0568");
+    }
+    ;
+smallJ
+    = 'j'
+    {
+        $$ = cybuben_node_create("\u057B");
+    }
+    ;
+smallK
+    = 'k'
+    {
+        $$ = cybuben_node_create("\u056F");
+    }
+    ;
+smallL
+    = 'l'
+    {
+        $$ = cybuben_node_create("\u056C");
+    }
+    ;
+smallM
+    = 'm'
+    {
+        $$ = cybuben_node_create("\u0574");
+    }
+    ;
+smallN
+    = 'n'
+    {
+        $$ = cybuben_node_create("\u0576");
+    }
+    ;
+smallO
+    = 'o'
+    {
+        $$ = cybuben_node_create("\u0585");
+    }
+    ;
+smallP
+    = < 'p' '\''? >
+    {
+        if (cybuben_includes_char(yytext, '\'')) {
+            $$ = cybuben_node_create("\u0583");
+        } else {
+            $$ = cybuben_node_create("\u057A");
+        }
+    }
+    ;
+smallQ
+    = 'q'
+    {
+        $$ = cybuben_node_create("\u0584");
+    }
+    ;
+smallR
+    = < 'r' 'r'? >
+    {
+        if (strcmp(yytext, "rr") == 0) {
+            $$ = cybuben_node_create("\u057C");
+        } else {
+            $$ = cybuben_node_create("\u0580");
+        }
+    }
+    ;
+smallS
+    = < 's' 'h'? >
+    {
+        if (cybuben_includes_char(yytext, 'h')) {
+            $$ = cybuben_node_create("\u0577");
+        } else {
+            $$ = cybuben_node_create("\u057D");
+        }
+    }
+    ;
+smallT
+    = < 't' [w']? >
+    {
+        if (cybuben_includes_char(yytext, 'w')) {
+            $$ = cybuben_node_create("\u0573");
+        } else if (cybuben_includes_char(yytext, '\'')) {
+            $$ = cybuben_node_create("\u0569");
+        } else {
+            $$ = cybuben_node_create("\u057F");
+        }
+    }
+    ;
+smallU
+    = 'u'
+    {
+        $$ = cybuben_node_create("\u0578\u0582");
+    }
+    ;
+smallV
+    = < 'v' 'o'? >
+    {
+        if (cybuben_includes_char(yytext, 'o')) {
+            $$ = cybuben_node_create("\u0578");
+        } else {
+            $$ = cybuben_node_create("\u057E");
+        }
+    }
+    ;
+smallW
+    = 'w'
+    {
+        $$ = cybuben_node_create("\u0582");
+    }
+    ;
+smallX
+    = 'x'
+    {
+        $$ = cybuben_node_create("\u056D");
+    }
+    ;
+smallY
+    = < 'y' '\''? >
+    {
+        if (cybuben_includes_char(yytext, '\'')) {
+            $$ = cybuben_node_create("\u0568");
+        } else {
+            $$ = cybuben_node_create("\u0575");
+        }
+    }
+    ;
+smallZ
+    = < 'z' 'h'? >
+    {
+        if (cybuben_includes_char(yytext, 'h')) {
+            $$ = cybuben_node_create("\u056A");
+        } else {
+            $$ = cybuben_node_create("\u0566");
+        }
+    }
+    ;
+
+dollar
+    = '$'
+    {
+        $$ = cybuben_node_create("\u058F");
+    }
+    ;
+backQuote
+    = '`'
+    {
+        $$ = cybuben_node_create("\u055D");
+    }
+    ;
+colon
+    = ':'
+    {
+        $$ = cybuben_node_create("\u0589");
+    }
+    ;
+leftGuillemet
+    = '<' '<'
+    {
+        $$ = cybuben_node_create("\u00AB");
+    }
+    ;
+rightGuillemet
+    = '>' '>'
+    {
+        $$ = cybuben_node_create("\u00BB");
+    }
+    ;
+question
+    = '?'
+    {
+        $$ = cybuben_node_create("\u055E");
+    }
+    ;
+exclamation
+    = < '!' '~' >
+    {
+        if (cybuben_includes_char(yytext, '~')) {
+            $$ = cybuben_node_create("\u055C");
+        } else {
+            $$ = cybuben_node_create("\u055B");
+        }
+    }
+    ;
+
+asis
+    = < . >
+    {
+        $$ = cybuben_node_create(yytext);
+    }
+    ;
+
+%%
+

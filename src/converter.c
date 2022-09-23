@@ -4,15 +4,14 @@
 #include <stdlib.h>
 #include <string.h>
 #define YYRULECOUNT 65
-#line 1 "src/parser.leg"
+#line 1 "src/converter.leg"
 
+#include "util.h"
+
+#define YYSTYPE cybuben_node*
 #define YY_CTX_LOCAL
-#define YYSTYPE parsed_chunk_t*
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "mapping.h"
+#define YY_CTX_MEMBERS \
+    cybuben_string* result;
 
 #ifndef YY_MALLOC
 #define YY_MALLOC(C, N)		malloc(N)
@@ -355,9 +354,9 @@ YY_ACTION(void) yy_1_asis(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_asis\n"));
   {
-#line 563
+#line 560
   
-        __ = create_chunk(yytext);
+        __ = cybuben_node_create(yytext);
     ;
   }
 #undef yythunkpos
@@ -371,12 +370,12 @@ YY_ACTION(void) yy_1_exclamation(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_exclamation\n"));
   {
-#line 552
+#line 549
   
-        if (includes_char(yytext, '~')) {
-            __ = create_chunk("\u055C");
+        if (cybuben_includes_char(yytext, '~')) {
+            __ = cybuben_node_create("\u055C");
         } else {
-            __ = create_chunk("\u055B");
+            __ = cybuben_node_create("\u055B");
         }
     ;
   }
@@ -391,9 +390,9 @@ YY_ACTION(void) yy_1_question(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_question\n"));
   {
-#line 546
+#line 543
   
-        __ = create_chunk("\u055E");
+        __ = cybuben_node_create("\u055E");
     ;
   }
 #undef yythunkpos
@@ -407,9 +406,9 @@ YY_ACTION(void) yy_1_rightGuillemet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_rightGuillemet\n"));
   {
-#line 540
+#line 537
   
-        __ = create_chunk("\u00BB");
+        __ = cybuben_node_create("\u00BB");
     ;
   }
 #undef yythunkpos
@@ -423,9 +422,9 @@ YY_ACTION(void) yy_1_leftGuillemet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_leftGuillemet\n"));
   {
-#line 534
+#line 531
   
-        __ = create_chunk("\u00AB");
+        __ = cybuben_node_create("\u00AB");
     ;
   }
 #undef yythunkpos
@@ -439,9 +438,9 @@ YY_ACTION(void) yy_1_colon(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_colon\n"));
   {
-#line 528
+#line 525
   
-        __ = create_chunk("\u0589");
+        __ = cybuben_node_create("\u0589");
     ;
   }
 #undef yythunkpos
@@ -455,9 +454,9 @@ YY_ACTION(void) yy_1_backQuote(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_backQuote\n"));
   {
-#line 522
+#line 519
   
-        __ = create_chunk("\u055D");
+        __ = cybuben_node_create("\u055D");
     ;
   }
 #undef yythunkpos
@@ -471,9 +470,9 @@ YY_ACTION(void) yy_1_dollar(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_dollar\n"));
   {
-#line 516
+#line 513
   
-        __ = create_chunk("\u058F");
+        __ = cybuben_node_create("\u058F");
     ;
   }
 #undef yythunkpos
@@ -487,12 +486,12 @@ YY_ACTION(void) yy_1_smallZ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallZ\n"));
   {
-#line 505
+#line 502
   
-        if (includes_char(yytext, 'h')) {
-            __ = create_chunk("\u056A");
+        if (cybuben_includes_char(yytext, 'h')) {
+            __ = cybuben_node_create("\u056A");
         } else {
-            __ = create_chunk("\u0566");
+            __ = cybuben_node_create("\u0566");
         }
     ;
   }
@@ -507,12 +506,12 @@ YY_ACTION(void) yy_1_smallY(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallY\n"));
   {
-#line 495
+#line 492
   
-        if (includes_char(yytext, '\'')) {
-            __ = create_chunk("\u0568");
+        if (cybuben_includes_char(yytext, '\'')) {
+            __ = cybuben_node_create("\u0568");
         } else {
-            __ = create_chunk("\u0575");
+            __ = cybuben_node_create("\u0575");
         }
     ;
   }
@@ -527,9 +526,9 @@ YY_ACTION(void) yy_1_smallX(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallX\n"));
   {
-#line 489
+#line 486
   
-        __ = create_chunk("\u056D");
+        __ = cybuben_node_create("\u056D");
     ;
   }
 #undef yythunkpos
@@ -543,9 +542,9 @@ YY_ACTION(void) yy_1_smallW(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallW\n"));
   {
-#line 483
+#line 480
   
-        __ = create_chunk("\u0582");
+        __ = cybuben_node_create("\u0582");
     ;
   }
 #undef yythunkpos
@@ -559,12 +558,12 @@ YY_ACTION(void) yy_1_smallV(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallV\n"));
   {
-#line 473
+#line 470
   
-        if (includes_char(yytext, 'o')) {
-            __ = create_chunk("\u0578");
+        if (cybuben_includes_char(yytext, 'o')) {
+            __ = cybuben_node_create("\u0578");
         } else {
-            __ = create_chunk("\u057E");
+            __ = cybuben_node_create("\u057E");
         }
     ;
   }
@@ -579,9 +578,9 @@ YY_ACTION(void) yy_1_smallU(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallU\n"));
   {
-#line 467
+#line 464
   
-        __ = create_chunk("\u0578\u0582");
+        __ = cybuben_node_create("\u0578\u0582");
     ;
   }
 #undef yythunkpos
@@ -595,14 +594,14 @@ YY_ACTION(void) yy_1_smallT(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallT\n"));
   {
-#line 455
+#line 452
   
-        if (includes_char(yytext, 'w')) {
-            __ = create_chunk("\u0573");
-        } else if (includes_char(yytext, '\'')) {
-            __ = create_chunk("\u0569");
+        if (cybuben_includes_char(yytext, 'w')) {
+            __ = cybuben_node_create("\u0573");
+        } else if (cybuben_includes_char(yytext, '\'')) {
+            __ = cybuben_node_create("\u0569");
         } else {
-            __ = create_chunk("\u057F");
+            __ = cybuben_node_create("\u057F");
         }
     ;
   }
@@ -617,12 +616,12 @@ YY_ACTION(void) yy_1_smallS(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallS\n"));
   {
-#line 445
+#line 442
   
-        if (includes_char(yytext, 'h')) {
-            __ = create_chunk("\u0577");
+        if (cybuben_includes_char(yytext, 'h')) {
+            __ = cybuben_node_create("\u0577");
         } else {
-            __ = create_chunk("\u057D");
+            __ = cybuben_node_create("\u057D");
         }
     ;
   }
@@ -637,12 +636,12 @@ YY_ACTION(void) yy_1_smallR(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallR\n"));
   {
-#line 435
+#line 432
   
         if (strcmp(yytext, "rr") == 0) {
-            __ = create_chunk("\u057C");
+            __ = cybuben_node_create("\u057C");
         } else {
-            __ = create_chunk("\u0580");
+            __ = cybuben_node_create("\u0580");
         }
     ;
   }
@@ -657,9 +656,9 @@ YY_ACTION(void) yy_1_smallQ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallQ\n"));
   {
-#line 429
+#line 426
   
-        __ = create_chunk("\u0584");
+        __ = cybuben_node_create("\u0584");
     ;
   }
 #undef yythunkpos
@@ -673,12 +672,12 @@ YY_ACTION(void) yy_1_smallP(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallP\n"));
   {
-#line 419
+#line 416
   
-        if (includes_char(yytext, '\'')) {
-            __ = create_chunk("\u0583");
+        if (cybuben_includes_char(yytext, '\'')) {
+            __ = cybuben_node_create("\u0583");
         } else {
-            __ = create_chunk("\u057A");
+            __ = cybuben_node_create("\u057A");
         }
     ;
   }
@@ -693,9 +692,9 @@ YY_ACTION(void) yy_1_smallO(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallO\n"));
   {
-#line 413
+#line 410
   
-        __ = create_chunk("\u0585");
+        __ = cybuben_node_create("\u0585");
     ;
   }
 #undef yythunkpos
@@ -709,9 +708,9 @@ YY_ACTION(void) yy_1_smallN(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallN\n"));
   {
-#line 407
+#line 404
   
-        __ = create_chunk("\u0576");
+        __ = cybuben_node_create("\u0576");
     ;
   }
 #undef yythunkpos
@@ -725,9 +724,9 @@ YY_ACTION(void) yy_1_smallM(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallM\n"));
   {
-#line 401
+#line 398
   
-        __ = create_chunk("\u0574");
+        __ = cybuben_node_create("\u0574");
     ;
   }
 #undef yythunkpos
@@ -741,9 +740,9 @@ YY_ACTION(void) yy_1_smallL(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallL\n"));
   {
-#line 395
+#line 392
   
-        __ = create_chunk("\u056C");
+        __ = cybuben_node_create("\u056C");
     ;
   }
 #undef yythunkpos
@@ -757,9 +756,9 @@ YY_ACTION(void) yy_1_smallK(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallK\n"));
   {
-#line 389
+#line 386
   
-        __ = create_chunk("\u056F");
+        __ = cybuben_node_create("\u056F");
     ;
   }
 #undef yythunkpos
@@ -773,9 +772,9 @@ YY_ACTION(void) yy_1_smallJ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallJ\n"));
   {
-#line 383
+#line 380
   
-        __ = create_chunk("\u057B");
+        __ = cybuben_node_create("\u057B");
     ;
   }
 #undef yythunkpos
@@ -789,9 +788,9 @@ YY_ACTION(void) yy_1_smallI(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallI\n"));
   {
-#line 377
+#line 374
   
-        __ = create_chunk("\u0568");
+        __ = cybuben_node_create("\u0568");
     ;
   }
 #undef yythunkpos
@@ -805,9 +804,9 @@ YY_ACTION(void) yy_1_smallH(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallH\n"));
   {
-#line 371
+#line 368
   
-        __ = create_chunk("\u0570");
+        __ = cybuben_node_create("\u0570");
     ;
   }
 #undef yythunkpos
@@ -821,12 +820,12 @@ YY_ACTION(void) yy_1_smallG(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallG\n"));
   {
-#line 361
+#line 358
   
-        if (includes_char(yytext, 'h')) {
-            __ = create_chunk("\u0572");
+        if (cybuben_includes_char(yytext, 'h')) {
+            __ = cybuben_node_create("\u0572");
         } else {
-            __ = create_chunk("\u0563");
+            __ = cybuben_node_create("\u0563");
         }
     ;
   }
@@ -841,9 +840,9 @@ YY_ACTION(void) yy_1_smallF(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallF\n"));
   {
-#line 355
+#line 352
   
-        __ = create_chunk("\u0586");
+        __ = cybuben_node_create("\u0586");
     ;
   }
 #undef yythunkpos
@@ -857,14 +856,14 @@ YY_ACTION(void) yy_1_smallE(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallE\n"));
   {
-#line 343
+#line 340
   
-        if (includes_char(yytext, 'v')) {
-            __ = create_chunk("\u0587");
-        } else if (includes_char(yytext, '\'')) {
-            __ = create_chunk("\u0567");
+        if (cybuben_includes_char(yytext, 'v')) {
+            __ = cybuben_node_create("\u0587");
+        } else if (cybuben_includes_char(yytext, '\'')) {
+            __ = cybuben_node_create("\u0567");
         } else {
-            __ = create_chunk("\u0565");
+            __ = cybuben_node_create("\u0565");
         }
     ;
   }
@@ -879,12 +878,12 @@ YY_ACTION(void) yy_1_smallD(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallD\n"));
   {
-#line 333
+#line 330
   
-        if (includes_char(yytext, 'z')) {
-            __ = create_chunk("\u0571");
+        if (cybuben_includes_char(yytext, 'z')) {
+            __ = cybuben_node_create("\u0571");
         } else {
-            __ = create_chunk("\u0564");
+            __ = cybuben_node_create("\u0564");
         }
     ;
   }
@@ -899,14 +898,14 @@ YY_ACTION(void) yy_1_smallC(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallC\n"));
   {
-#line 321
+#line 318
   
-        if (includes_char(yytext, 'h')) {
-            __ = create_chunk("\u0579");
-        } else if (includes_char(yytext, '\'')) {
-            __ = create_chunk("\u056E");
+        if (cybuben_includes_char(yytext, 'h')) {
+            __ = cybuben_node_create("\u0579");
+        } else if (cybuben_includes_char(yytext, '\'')) {
+            __ = cybuben_node_create("\u056E");
         } else {
-            __ = create_chunk("\u0581");
+            __ = cybuben_node_create("\u0581");
         }
     ;
   }
@@ -921,9 +920,9 @@ YY_ACTION(void) yy_1_smallB(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallB\n"));
   {
-#line 315
+#line 312
   
-        __ = create_chunk("\u0562");
+        __ = cybuben_node_create("\u0562");
     ;
   }
 #undef yythunkpos
@@ -937,9 +936,9 @@ YY_ACTION(void) yy_1_smallA(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_smallA\n"));
   {
-#line 309
+#line 306
   
-        __ = create_chunk("\u0561");
+        __ = cybuben_node_create("\u0561");
     ;
   }
 #undef yythunkpos
@@ -953,12 +952,12 @@ YY_ACTION(void) yy_1_largeZ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeZ\n"));
   {
-#line 298
+#line 295
   
-        if (includes_char(yytext, 'h')) {
-            __ = create_chunk("\u053A");
+        if (cybuben_includes_char(yytext, 'h')) {
+            __ = cybuben_node_create("\u053A");
         } else {
-            __ = create_chunk("\u0536");
+            __ = cybuben_node_create("\u0536");
         }
     ;
   }
@@ -973,12 +972,12 @@ YY_ACTION(void) yy_1_largeY(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeY\n"));
   {
-#line 288
+#line 285
   
-        if (includes_char(yytext, '\'')) {
-            __ = create_chunk("\u0538");
+        if (cybuben_includes_char(yytext, '\'')) {
+            __ = cybuben_node_create("\u0538");
         } else {
-            __ = create_chunk("\u0545");
+            __ = cybuben_node_create("\u0545");
         }
     ;
   }
@@ -993,9 +992,9 @@ YY_ACTION(void) yy_1_largeX(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeX\n"));
   {
-#line 282
+#line 279
   
-        __ = create_chunk("\u053D");
+        __ = cybuben_node_create("\u053D");
     ;
   }
 #undef yythunkpos
@@ -1009,9 +1008,9 @@ YY_ACTION(void) yy_1_largeW(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeW\n"));
   {
-#line 276
+#line 273
   
-        __ = create_chunk("\u0552");
+        __ = cybuben_node_create("\u0552");
     ;
   }
 #undef yythunkpos
@@ -1025,12 +1024,12 @@ YY_ACTION(void) yy_1_largeV(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeV\n"));
   {
-#line 266
+#line 263
   
-        if (includes_char(yytext, 'o')) {
-            __ = create_chunk("\u0548");
+        if (cybuben_includes_char(yytext, 'o')) {
+            __ = cybuben_node_create("\u0548");
         } else {
-            __ = create_chunk("\u054E");
+            __ = cybuben_node_create("\u054E");
         }
     ;
   }
@@ -1045,9 +1044,9 @@ YY_ACTION(void) yy_1_largeU(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeU\n"));
   {
-#line 260
+#line 257
   
-        __ = create_chunk("\u0548\u0582");
+        __ = cybuben_node_create("\u0548\u0582");
     ;
   }
 #undef yythunkpos
@@ -1061,14 +1060,14 @@ YY_ACTION(void) yy_1_largeT(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeT\n"));
   {
-#line 248
+#line 245
   
-        if (includes_char(yytext, 'w')) {
-            __ = create_chunk("\u0543");
-        } else if (includes_char(yytext, '\'')) {
-            __ = create_chunk("\u0539");
+        if (cybuben_includes_char(yytext, 'w')) {
+            __ = cybuben_node_create("\u0543");
+        } else if (cybuben_includes_char(yytext, '\'')) {
+            __ = cybuben_node_create("\u0539");
         } else {
-            __ = create_chunk("\u054F");
+            __ = cybuben_node_create("\u054F");
         }
     ;
   }
@@ -1083,12 +1082,12 @@ YY_ACTION(void) yy_1_largeS(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeS\n"));
   {
-#line 238
+#line 235
   
-        if (includes_char(yytext, 'h')) {
-            __ = create_chunk("\u0547");
+        if (cybuben_includes_char(yytext, 'h')) {
+            __ = cybuben_node_create("\u0547");
         } else {
-            __ = create_chunk("\u054D");
+            __ = cybuben_node_create("\u054D");
         }
     ;
   }
@@ -1103,12 +1102,12 @@ YY_ACTION(void) yy_1_largeR(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeR\n"));
   {
-#line 228
+#line 225
   
-        if (includes_char(yytext, 'r')) {
-            __ = create_chunk("\u054C");
+        if (cybuben_includes_char(yytext, 'r')) {
+            __ = cybuben_node_create("\u054C");
         } else {
-            __ = create_chunk("\u0550");
+            __ = cybuben_node_create("\u0550");
         }
     ;
   }
@@ -1123,9 +1122,9 @@ YY_ACTION(void) yy_1_largeQ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeQ\n"));
   {
-#line 222
+#line 219
   
-        __ = create_chunk("\u0554");
+        __ = cybuben_node_create("\u0554");
     ;
   }
 #undef yythunkpos
@@ -1139,12 +1138,12 @@ YY_ACTION(void) yy_1_largeP(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeP\n"));
   {
-#line 212
+#line 209
   
-        if (includes_char(yytext, '\'')) {
-            __ = create_chunk("\u0553");
+        if (cybuben_includes_char(yytext, '\'')) {
+            __ = cybuben_node_create("\u0553");
         } else {
-            __ = create_chunk("\u054A");
+            __ = cybuben_node_create("\u054A");
         }
     ;
   }
@@ -1159,9 +1158,9 @@ YY_ACTION(void) yy_1_largeO(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeO\n"));
   {
-#line 206
+#line 203
   
-        __ = create_chunk("\u0555");
+        __ = cybuben_node_create("\u0555");
     ;
   }
 #undef yythunkpos
@@ -1175,9 +1174,9 @@ YY_ACTION(void) yy_1_largeN(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeN\n"));
   {
-#line 200
+#line 197
   
-        __ = create_chunk("\u0546");
+        __ = cybuben_node_create("\u0546");
     ;
   }
 #undef yythunkpos
@@ -1191,9 +1190,9 @@ YY_ACTION(void) yy_1_largeM(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeM\n"));
   {
-#line 194
+#line 191
   
-        __ = create_chunk("\u0544");
+        __ = cybuben_node_create("\u0544");
     ;
   }
 #undef yythunkpos
@@ -1207,9 +1206,9 @@ YY_ACTION(void) yy_1_largeL(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeL\n"));
   {
-#line 188
+#line 185
   
-        __ = create_chunk("\u053C");
+        __ = cybuben_node_create("\u053C");
     ;
   }
 #undef yythunkpos
@@ -1223,9 +1222,9 @@ YY_ACTION(void) yy_1_largeK(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeK\n"));
   {
-#line 182
+#line 179
   
-        __ = create_chunk("\u053F");
+        __ = cybuben_node_create("\u053F");
     ;
   }
 #undef yythunkpos
@@ -1239,9 +1238,9 @@ YY_ACTION(void) yy_1_largeJ(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeJ\n"));
   {
-#line 176
+#line 173
   
-        __ = create_chunk("\u054B");
+        __ = cybuben_node_create("\u054B");
     ;
   }
 #undef yythunkpos
@@ -1255,9 +1254,9 @@ YY_ACTION(void) yy_1_largeI(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeI\n"));
   {
-#line 170
+#line 167
   
-        __ = create_chunk("\u053B");
+        __ = cybuben_node_create("\u053B");
     ;
   }
 #undef yythunkpos
@@ -1271,9 +1270,9 @@ YY_ACTION(void) yy_1_largeH(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeH\n"));
   {
-#line 164
+#line 161
   
-        __ = create_chunk("\u0540");
+        __ = cybuben_node_create("\u0540");
     ;
   }
 #undef yythunkpos
@@ -1287,12 +1286,12 @@ YY_ACTION(void) yy_1_largeG(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeG\n"));
   {
-#line 154
+#line 151
   
-        if (includes_char(yytext, 'h')) {
-            __ = create_chunk("\u0542");
+        if (cybuben_includes_char(yytext, 'h')) {
+            __ = cybuben_node_create("\u0542");
         } else {
-            __ = create_chunk("\u0533");
+            __ = cybuben_node_create("\u0533");
         }
     ;
   }
@@ -1307,9 +1306,9 @@ YY_ACTION(void) yy_1_largeF(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeF\n"));
   {
-#line 148
+#line 145
   
-        __ = create_chunk("\u0556");
+        __ = cybuben_node_create("\u0556");
     ;
   }
 #undef yythunkpos
@@ -1323,12 +1322,12 @@ YY_ACTION(void) yy_1_largeE(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeE\n"));
   {
-#line 138
+#line 135
   
-        if (includes_char(yytext, '\'')) {
-            __ = create_chunk("\u0537");
+        if (cybuben_includes_char(yytext, '\'')) {
+            __ = cybuben_node_create("\u0537");
         } else {
-            __ = create_chunk("\u0535");
+            __ = cybuben_node_create("\u0535");
         }
     ;
   }
@@ -1343,12 +1342,12 @@ YY_ACTION(void) yy_1_largeD(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeD\n"));
   {
-#line 128
+#line 125
   
-        if (includes_char(yytext, 'z')) {
-            __ = create_chunk("\u0541");
+        if (cybuben_includes_char(yytext, 'z')) {
+            __ = cybuben_node_create("\u0541");
         } else {
-            __ = create_chunk("\u0534");
+            __ = cybuben_node_create("\u0534");
         }
     ;
   }
@@ -1363,14 +1362,14 @@ YY_ACTION(void) yy_1_largeC(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeC\n"));
   {
-#line 116
+#line 113
   
-        if (includes_char(yytext, 'h')) {
-            __ = create_chunk("\u0549");
-        } else if (includes_char(yytext, '\'')) {
-            __ = create_chunk("\u053E");
+        if (cybuben_includes_char(yytext, 'h')) {
+            __ = cybuben_node_create("\u0549");
+        } else if (cybuben_includes_char(yytext, '\'')) {
+            __ = cybuben_node_create("\u053E");
         } else {
-            __ = create_chunk("\u0551");
+            __ = cybuben_node_create("\u0551");
         }
     ;
   }
@@ -1385,9 +1384,9 @@ YY_ACTION(void) yy_1_largeB(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeB\n"));
   {
-#line 110
+#line 107
   
-        __ = create_chunk("\u0532");
+        __ = cybuben_node_create("\u0532");
     ;
   }
 #undef yythunkpos
@@ -1401,9 +1400,9 @@ YY_ACTION(void) yy_1_largeA(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_largeA\n"));
   {
-#line 104
+#line 101
   
-        __ = create_chunk("\u0531");
+        __ = cybuben_node_create("\u0531");
     ;
   }
 #undef yythunkpos
@@ -1418,7 +1417,7 @@ YY_ACTION(void) yy_7_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_7_non_alphabet\n"));
   {
-#line 99
+#line 96
    __ = l; ;
   }
 #undef yythunkpos
@@ -1434,7 +1433,7 @@ YY_ACTION(void) yy_6_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_6_non_alphabet\n"));
   {
-#line 98
+#line 95
    __ = l; ;
   }
 #undef yythunkpos
@@ -1450,7 +1449,7 @@ YY_ACTION(void) yy_5_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_5_non_alphabet\n"));
   {
-#line 97
+#line 94
    __ = l; ;
   }
 #undef yythunkpos
@@ -1466,7 +1465,7 @@ YY_ACTION(void) yy_4_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_4_non_alphabet\n"));
   {
-#line 96
+#line 93
    __ = l; ;
   }
 #undef yythunkpos
@@ -1482,7 +1481,7 @@ YY_ACTION(void) yy_3_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_3_non_alphabet\n"));
   {
-#line 95
+#line 92
    __ = l; ;
   }
 #undef yythunkpos
@@ -1498,7 +1497,7 @@ YY_ACTION(void) yy_2_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_non_alphabet\n"));
   {
-#line 94
+#line 91
    __ = l; ;
   }
 #undef yythunkpos
@@ -1514,7 +1513,7 @@ YY_ACTION(void) yy_1_non_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_non_alphabet\n"));
   {
-#line 93
+#line 90
    __ = l; ;
   }
 #undef yythunkpos
@@ -1530,7 +1529,7 @@ YY_ACTION(void) yy_52_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_52_alphabet\n"));
   {
-#line 89
+#line 86
    __ = l; ;
   }
 #undef yythunkpos
@@ -1546,7 +1545,7 @@ YY_ACTION(void) yy_51_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_51_alphabet\n"));
   {
-#line 88
+#line 85
    __ = l; ;
   }
 #undef yythunkpos
@@ -1562,7 +1561,7 @@ YY_ACTION(void) yy_50_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_50_alphabet\n"));
   {
-#line 87
+#line 84
    __ = l; ;
   }
 #undef yythunkpos
@@ -1578,7 +1577,7 @@ YY_ACTION(void) yy_49_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_49_alphabet\n"));
   {
-#line 86
+#line 83
    __ = l; ;
   }
 #undef yythunkpos
@@ -1594,7 +1593,7 @@ YY_ACTION(void) yy_48_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_48_alphabet\n"));
   {
-#line 85
+#line 82
    __ = l; ;
   }
 #undef yythunkpos
@@ -1610,7 +1609,7 @@ YY_ACTION(void) yy_47_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_47_alphabet\n"));
   {
-#line 84
+#line 81
    __ = l; ;
   }
 #undef yythunkpos
@@ -1626,7 +1625,7 @@ YY_ACTION(void) yy_46_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_46_alphabet\n"));
   {
-#line 83
+#line 80
    __ = l; ;
   }
 #undef yythunkpos
@@ -1642,7 +1641,7 @@ YY_ACTION(void) yy_45_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_45_alphabet\n"));
   {
-#line 82
+#line 79
    __ = l; ;
   }
 #undef yythunkpos
@@ -1658,7 +1657,7 @@ YY_ACTION(void) yy_44_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_44_alphabet\n"));
   {
-#line 81
+#line 78
    __ = l; ;
   }
 #undef yythunkpos
@@ -1674,7 +1673,7 @@ YY_ACTION(void) yy_43_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_43_alphabet\n"));
   {
-#line 80
+#line 77
    __ = l; ;
   }
 #undef yythunkpos
@@ -1690,7 +1689,7 @@ YY_ACTION(void) yy_42_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_42_alphabet\n"));
   {
-#line 79
+#line 76
    __ = l; ;
   }
 #undef yythunkpos
@@ -1706,7 +1705,7 @@ YY_ACTION(void) yy_41_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_41_alphabet\n"));
   {
-#line 78
+#line 75
    __ = l; ;
   }
 #undef yythunkpos
@@ -1722,7 +1721,7 @@ YY_ACTION(void) yy_40_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_40_alphabet\n"));
   {
-#line 77
+#line 74
    __ = l; ;
   }
 #undef yythunkpos
@@ -1738,7 +1737,7 @@ YY_ACTION(void) yy_39_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_39_alphabet\n"));
   {
-#line 76
+#line 73
    __ = l; ;
   }
 #undef yythunkpos
@@ -1754,7 +1753,7 @@ YY_ACTION(void) yy_38_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_38_alphabet\n"));
   {
-#line 75
+#line 72
    __ = l; ;
   }
 #undef yythunkpos
@@ -1770,7 +1769,7 @@ YY_ACTION(void) yy_37_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_37_alphabet\n"));
   {
-#line 74
+#line 71
    __ = l; ;
   }
 #undef yythunkpos
@@ -1786,7 +1785,7 @@ YY_ACTION(void) yy_36_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_36_alphabet\n"));
   {
-#line 73
+#line 70
    __ = l; ;
   }
 #undef yythunkpos
@@ -1802,7 +1801,7 @@ YY_ACTION(void) yy_35_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_35_alphabet\n"));
   {
-#line 72
+#line 69
    __ = l; ;
   }
 #undef yythunkpos
@@ -1818,7 +1817,7 @@ YY_ACTION(void) yy_34_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_34_alphabet\n"));
   {
-#line 71
+#line 68
    __ = l; ;
   }
 #undef yythunkpos
@@ -1834,7 +1833,7 @@ YY_ACTION(void) yy_33_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_33_alphabet\n"));
   {
-#line 70
+#line 67
    __ = l; ;
   }
 #undef yythunkpos
@@ -1850,7 +1849,7 @@ YY_ACTION(void) yy_32_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_32_alphabet\n"));
   {
-#line 69
+#line 66
    __ = l; ;
   }
 #undef yythunkpos
@@ -1866,7 +1865,7 @@ YY_ACTION(void) yy_31_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_31_alphabet\n"));
   {
-#line 68
+#line 65
    __ = l; ;
   }
 #undef yythunkpos
@@ -1882,7 +1881,7 @@ YY_ACTION(void) yy_30_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_30_alphabet\n"));
   {
-#line 67
+#line 64
    __ = l; ;
   }
 #undef yythunkpos
@@ -1898,7 +1897,7 @@ YY_ACTION(void) yy_29_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_29_alphabet\n"));
   {
-#line 66
+#line 63
    __ = l; ;
   }
 #undef yythunkpos
@@ -1914,7 +1913,7 @@ YY_ACTION(void) yy_28_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_28_alphabet\n"));
   {
-#line 65
+#line 62
    __ = l; ;
   }
 #undef yythunkpos
@@ -1930,7 +1929,7 @@ YY_ACTION(void) yy_27_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_27_alphabet\n"));
   {
-#line 64
+#line 61
    __ = l; ;
   }
 #undef yythunkpos
@@ -1946,7 +1945,7 @@ YY_ACTION(void) yy_26_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_26_alphabet\n"));
   {
-#line 63
+#line 60
    __ = l; ;
   }
 #undef yythunkpos
@@ -1962,7 +1961,7 @@ YY_ACTION(void) yy_25_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_25_alphabet\n"));
   {
-#line 62
+#line 59
    __ = l; ;
   }
 #undef yythunkpos
@@ -1978,7 +1977,7 @@ YY_ACTION(void) yy_24_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_24_alphabet\n"));
   {
-#line 61
+#line 58
    __ = l; ;
   }
 #undef yythunkpos
@@ -1994,7 +1993,7 @@ YY_ACTION(void) yy_23_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_23_alphabet\n"));
   {
-#line 60
+#line 57
    __ = l; ;
   }
 #undef yythunkpos
@@ -2010,7 +2009,7 @@ YY_ACTION(void) yy_22_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_22_alphabet\n"));
   {
-#line 59
+#line 56
    __ = l; ;
   }
 #undef yythunkpos
@@ -2026,7 +2025,7 @@ YY_ACTION(void) yy_21_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_21_alphabet\n"));
   {
-#line 58
+#line 55
    __ = l; ;
   }
 #undef yythunkpos
@@ -2042,7 +2041,7 @@ YY_ACTION(void) yy_20_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_20_alphabet\n"));
   {
-#line 57
+#line 54
    __ = l; ;
   }
 #undef yythunkpos
@@ -2058,7 +2057,7 @@ YY_ACTION(void) yy_19_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_19_alphabet\n"));
   {
-#line 56
+#line 53
    __ = l; ;
   }
 #undef yythunkpos
@@ -2074,7 +2073,7 @@ YY_ACTION(void) yy_18_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_18_alphabet\n"));
   {
-#line 55
+#line 52
    __ = l; ;
   }
 #undef yythunkpos
@@ -2090,7 +2089,7 @@ YY_ACTION(void) yy_17_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_17_alphabet\n"));
   {
-#line 54
+#line 51
    __ = l; ;
   }
 #undef yythunkpos
@@ -2106,7 +2105,7 @@ YY_ACTION(void) yy_16_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_16_alphabet\n"));
   {
-#line 53
+#line 50
    __ = l; ;
   }
 #undef yythunkpos
@@ -2122,7 +2121,7 @@ YY_ACTION(void) yy_15_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_15_alphabet\n"));
   {
-#line 52
+#line 49
    __ = l; ;
   }
 #undef yythunkpos
@@ -2138,7 +2137,7 @@ YY_ACTION(void) yy_14_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_14_alphabet\n"));
   {
-#line 51
+#line 48
    __ = l; ;
   }
 #undef yythunkpos
@@ -2154,7 +2153,7 @@ YY_ACTION(void) yy_13_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_13_alphabet\n"));
   {
-#line 50
+#line 47
    __ = l; ;
   }
 #undef yythunkpos
@@ -2170,7 +2169,7 @@ YY_ACTION(void) yy_12_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_12_alphabet\n"));
   {
-#line 49
+#line 46
    __ = l; ;
   }
 #undef yythunkpos
@@ -2186,7 +2185,7 @@ YY_ACTION(void) yy_11_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_11_alphabet\n"));
   {
-#line 48
+#line 45
    __ = l; ;
   }
 #undef yythunkpos
@@ -2202,7 +2201,7 @@ YY_ACTION(void) yy_10_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_10_alphabet\n"));
   {
-#line 47
+#line 44
    __ = l; ;
   }
 #undef yythunkpos
@@ -2218,7 +2217,7 @@ YY_ACTION(void) yy_9_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_9_alphabet\n"));
   {
-#line 46
+#line 43
    __ = l; ;
   }
 #undef yythunkpos
@@ -2234,7 +2233,7 @@ YY_ACTION(void) yy_8_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_8_alphabet\n"));
   {
-#line 45
+#line 42
    __ = l; ;
   }
 #undef yythunkpos
@@ -2250,7 +2249,7 @@ YY_ACTION(void) yy_7_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_7_alphabet\n"));
   {
-#line 44
+#line 41
    __ = l; ;
   }
 #undef yythunkpos
@@ -2266,7 +2265,7 @@ YY_ACTION(void) yy_6_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_6_alphabet\n"));
   {
-#line 43
+#line 40
    __ = l; ;
   }
 #undef yythunkpos
@@ -2282,7 +2281,7 @@ YY_ACTION(void) yy_5_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_5_alphabet\n"));
   {
-#line 42
+#line 39
    __ = l; ;
   }
 #undef yythunkpos
@@ -2298,7 +2297,7 @@ YY_ACTION(void) yy_4_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_4_alphabet\n"));
   {
-#line 41
+#line 38
    __ = l; ;
   }
 #undef yythunkpos
@@ -2314,7 +2313,7 @@ YY_ACTION(void) yy_3_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_3_alphabet\n"));
   {
-#line 40
+#line 37
    __ = l; ;
   }
 #undef yythunkpos
@@ -2330,7 +2329,7 @@ YY_ACTION(void) yy_2_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_alphabet\n"));
   {
-#line 39
+#line 36
    __ = l; ;
   }
 #undef yythunkpos
@@ -2346,7 +2345,7 @@ YY_ACTION(void) yy_1_alphabet(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_alphabet\n"));
   {
-#line 38
+#line 35
    __ = l; ;
   }
 #undef yythunkpos
@@ -2362,7 +2361,7 @@ YY_ACTION(void) yy_3_letter(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_3_letter\n"));
   {
-#line 34
+#line 31
    __ = l; ;
   }
 #undef yythunkpos
@@ -2378,7 +2377,7 @@ YY_ACTION(void) yy_2_letter(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_letter\n"));
   {
-#line 33
+#line 30
    __ = l; ;
   }
 #undef yythunkpos
@@ -2394,7 +2393,7 @@ YY_ACTION(void) yy_1_letter(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_letter\n"));
   {
-#line 32
+#line 29
    __ = l; ;
   }
 #undef yythunkpos
@@ -2411,7 +2410,7 @@ YY_ACTION(void) yy_2_letters(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_letters\n"));
   {
-#line 26
+#line 24
   
         __ = l;
     ;
@@ -2431,9 +2430,9 @@ YY_ACTION(void) yy_1_letters(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_letters\n"));
   {
-#line 21
+#line 19
   
-        l->n = ls;
+        l->next = ls;
         __ = l;
     ;
   }
@@ -2445,22 +2444,21 @@ YY_ACTION(void) yy_1_letters(yycontext *yy, char *yytext, int yyleng)
 }
 YY_ACTION(void) yy_1_start(yycontext *yy, char *yytext, int yyleng)
 {
-#define l yy->__val[-1]
+#define ls yy->__val[-1]
 #define __ yy->__
 #define yypos yy->__pos
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_start\n"));
   {
-#line 13
+#line 12
   
-        print_chunk(l);
-        free_chunk(l);
+        yy->result = cybuben_string_create(ls);
     ;
   }
 #undef yythunkpos
 #undef yypos
 #undef yy
-#undef l
+#undef ls
 }
 
 YY_RULE(int) yy_exclamation(yycontext *yy)
@@ -3544,7 +3542,7 @@ YY_PARSE(yycontext *) YYRELEASE(yycontext *yyctx)
 }
 
 #endif
-#line 568 "src/parser.leg"
+#line 565 "src/converter.leg"
 
 
 
