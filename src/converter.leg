@@ -4,7 +4,14 @@
 #define YYSTYPE cybuben_node*
 #define YY_CTX_LOCAL
 #define YY_CTX_MEMBERS \
+    FILE* stream; \
     cybuben_string* result;
+#define YY_INPUT(yy, buf, result, max_size) \
+  {	\
+    int yyc = getc(yy->stream); \
+    result = (EOF == yyc) ? 0 : (*(buf) = yyc, 1); \
+    yyprintf((stderr, "<%c>", yyc)); \
+  }
 %}
 
 start

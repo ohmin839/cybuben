@@ -5,7 +5,7 @@ init:
 .PHONY: clean
 clean:
 	rm -fR ./bin/*
-	test -n src/converter.c || rm src/converter.c
+	test -n src/converter.leg.c || rm src/converter.leg.c
 
 bin/util.o: src/util.c src/util.h
 	gcc -I./src \
@@ -13,15 +13,28 @@ bin/util.o: src/util.c src/util.h
 		./src/util.c \
 		-c -o./bin/util.o
 
-src/converter.c: src/converter.leg
-	leg src/converter.leg -osrc/converter.c
+src/converter.leg.c: src/converter.leg
+	leg src/converter.leg -osrc/converter.leg.c
 
-bin/cybubenconv: bin/util.o src/converter.c src/cybubenconv.c
+bin/cybubenconv: bin/util.o src/converter.leg.c src/converter_cli.c
 	gcc -I./src \
 		-fPIC \
 		./bin/util.o \
-		./src/cybubenconv.c \
+		./src/converter_cli.c \
 		-o./bin/cybubenconv
+
+bin/converter_api.o: src/converter.c src/converter_api.c
+	gcc -I./src \
+		-fPIC \
+		./src/converter_api.c \
+		-c -o./bin/converter_api.o
+
+bin/test_converter: src/converter.c test/test_converter.c bin/util.o
+	gcc -I./src \
+		-fPIC \
+		./bin/util.o \
+		./test/test_converter.c \
+		-o./bin/test_converter
 
 .PHONY: cybubenconv
 cybubenconv: bin/cybubenconv
