@@ -11,8 +11,8 @@
 #define YYSTYPE cybuben_node*
 #define YY_CTX_LOCAL
 #define YY_CTX_MEMBERS \
-    FILE* stream; \
-    cybuben_string* result;
+  FILE* stream; \
+  cybuben_string* result;
 #define YY_INPUT(yy, buf, result, max_size) \
   {	\
     int yyc = getc(yy->stream); \

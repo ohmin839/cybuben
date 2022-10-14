@@ -17,6 +17,39 @@ cybuben_node* cybuben_node_create(char* str) {
     return node;
 }
 
+cybuben_node* cybuben_node_copy(cybuben_node* src_node) {
+    cybuben_node* dst_node = NULL;
+
+    for (cybuben_node* node = src_node; node != NULL; node = node->next) {
+        if (dst_node == NULL) {
+            dst_node = cybuben_node_create(node->value);
+        } else {
+            cybuben_node_append(dst_node, node->value);
+        }
+    }
+
+    return dst_node;
+}
+
+void cybuben_node_append(cybuben_node* head_node, char* str) {
+    cybuben_node* node = head_node;
+    while(node->next != NULL) {
+        node = node->next;
+    }
+    node->next = cybuben_node_create(str);
+}
+
+bool cybuben_node_contains(cybuben_node* head_node, char* str) {
+    cybuben_node* node = head_node;
+    while(node->next != NULL) {
+        if (strcmp(node->value, str) == 0) {
+            return true;
+        }
+        node = node->next;
+    }
+    return false;
+}
+
 void cybuben_node_free(cybuben_node* node) {
     cybuben_node* next_node;
     while(node != NULL) {
@@ -60,6 +93,23 @@ void cybuben_string_free(cybuben_string* string) {
 }
 // string END
 
+// set START
+cybuben_node* cybuben_set_create(cybuben_node* src_node) {
+    cybuben_node* dst_node = NULL;
+
+    for (cybuben_node* node = src_node; node != NULL; node = node->next) {
+        if (dst_node == NULL) {
+            dst_node = cybuben_node_create(node->value);
+        } else {
+            if (!cybuben_node_contains(dst_node, node->value)) {
+                cybuben_node_append(dst_node, node->value);
+            }
+        }
+    }
+
+    return dst_node;
+}
+// set END
 
 // etc START
 bool cybuben_includes_char(char* token, char target) {

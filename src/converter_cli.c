@@ -16,7 +16,10 @@ int main()
         printf("%s", chars);
         free(chars);
     }
+
+    cybuben_string_free(yy.result);
     yyrelease(&yy);
+
     return 0;
 }
 

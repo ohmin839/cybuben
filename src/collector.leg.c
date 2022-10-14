@@ -4,14 +4,21 @@
 #include <stdlib.h>
 #include <string.h>
 #define YYRULECOUNT 2
-#line 1 "src/parser.leg"
+#line 1 "src/collector.leg"
 
+#include "util.h"
+
+#define YYSTYPE cybuben_node*
 #define YY_CTX_LOCAL
-
-#include <stdio.h>
-#include "action.h"
-
-word_node_t* head = NULL;
+#define YY_CTX_MEMBERS \
+  FILE* stream; \
+  cybuben_node* result;
+#define YY_INPUT(yy, buf, result, max_size) \
+  {	\
+    int yyc = getc(yy->stream); \
+    result = (EOF == yyc) ? 0 : (*(buf) = yyc, 1); \
+    yyprintf((stderr, "<%c>", yyc)); \
+  }
 
 #ifndef YY_MALLOC
 #define YY_MALLOC(C, N)		malloc(N)
@@ -291,12 +298,12 @@ YY_ACTION(void) yy_1_word(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_word\n"));
   {
-#line 97
+#line 104
   
-        if (head == NULL) {
-            head = create_word_node(yytext);
+        if (yy->result == NULL) {
+            yy->result = cybuben_node_create(yytext);
         } else {
-            add_word_node(head, yytext);
+            cybuben_node_append(yy->result, yytext);
         }
     ;
   }
@@ -553,7 +560,7 @@ YY_PARSE(yycontext *) YYRELEASE(yycontext *yyctx)
 }
 
 #endif
-#line 106 "src/parser.leg"
+#line 113 "src/collector.leg"
 
 
 
